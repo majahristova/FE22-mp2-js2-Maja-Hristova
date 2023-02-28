@@ -3,7 +3,7 @@ import { Tamagotchi } from "./modules/tamagotchi.js";
 
 const btn = document.querySelector('#button');
 btn.addEventListener('click',chooseTamagotchi);
-const mainContainer = document.querySelector('#container')
+const mainContainer = document.querySelector('#containerForTamagotchi')
 mainContainer.classList.add('maincontainer')
 
 
@@ -13,6 +13,7 @@ function chooseTamagotchi(event){
 
     const smalldiv = document.createElement('div');
     mainContainer.appendChild(smalldiv);
+    smalldiv.classList.add('smallDivInsideBig')
 
     const inputbox = document.querySelector('#text')
     const inputTamagotchiName = inputbox.value;
@@ -23,22 +24,22 @@ function chooseTamagotchi(event){
     if(sortchoosen == 'mouse'){
         const sortOneImg = document.createElement ('img');
         smalldiv.appendChild(sortOneImg);
-        sortOneImg.src = 'tamagotchiMouse.jpg';
+        sortOneImg.src = 'images/tamagotchiMouse.jpg';
         
     } else if(sortchoosen == 'rabbit'){
         const sortTwoImg = document.createElement ('img');
         smalldiv.appendChild(sortTwoImg);
-        sortTwoImg.src = 'TamgotchiRabbit.jpg';
+        sortTwoImg.src = 'images/TamgotchiRabbit.jpg';
     }
         else if(sortchoosen =='snake'){
             const sortThreImg = document.createElement ('img');
             smalldiv.appendChild(sortThreImg);
-            sortThreImg.src = 'TamagotchiSnake.jpg';
+            sortThreImg.src = 'images/TamagotchiSnake.jpg';
         }
         else if(sortchoosen =='bird'){
             const sortFourImg = document.createElement ('img');
             smalldiv.appendChild(sortFourImg);
-            sortFourImg.src = 'TamagotchiBird.jpg';
+            sortFourImg.src = 'images/TamagotchiBird.jpg';
         }
     
 
@@ -71,7 +72,7 @@ function chooseTamagotchi(event){
     //Olika egenskaper mellan main.js => tamagotchi.js
 
     newTamagotchiCharacter.hungerscore(foodlevelInnerText,feedBtn,playBtn)
-    newTamagotchiCharacter.happinessscore(happinessLevelInnerText,playBtn,feedBtn)
+    newTamagotchiCharacter.happinessscore(happinessLevelInnerText)
     feedBtn.addEventListener('click', ()=>{
         newTamagotchiCharacter.feedTamagotchiBtn(foodlevelInnerText);
     })

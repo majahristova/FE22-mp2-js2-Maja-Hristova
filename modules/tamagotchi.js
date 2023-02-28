@@ -1,8 +1,5 @@
 
-
-
 export class Tamagotchi {
-
     constructor(name, animalOption) {
         this.name = name;
         this.animalOption = animalOption;
@@ -14,8 +11,7 @@ export class Tamagotchi {
             this.foodlevel--;
             foodlevelInnerText.innerText = 'Food level = '  +  this.foodlevel;
              const audioWhenLosing = new Audio('gameover.mp3');
- 
-            if ( this.foodlevel === 0) {
+            if ( this.foodlevel === 0 || this.happinesslevel === 0) {
                 this.hungerscoreEnd();
                 audioWhenLosing.play();
                 feedbtn.disabled = true;
@@ -26,17 +22,13 @@ export class Tamagotchi {
     hungerscoreEnd(){
         clearInterval(this.firstintervallID);
     }
-    happinessscore(happinessLevelInnerText,playBtn,feedBtn){
+    happinessscore(happinessLevelInnerText){
         this.secondintervalID = setInterval(() => {
             this.happinesslevel--;
             happinessLevelInnerText.innerText = 'Happiness level = ' + this.happinesslevel;
-            const audioWhenLosing = new Audio('gameover.mp3');
-         
-            if( this.happinesslevel === 0){
+            if( this.happinesslevel === 0 || this.foodlevel === 0 ){
                 this.happinesscoreEnd();
-                audioWhenLosing.play();
-                playBtn.disabled = true;
-                feedBtn.disabled = true;
+               
             }
         }, "2000" )
     }
