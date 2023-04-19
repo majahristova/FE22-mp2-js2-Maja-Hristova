@@ -36,17 +36,27 @@ export class Tamagotchi {
         clearInterval(this.secondintervalID)
     }
     feedTamagotchiBtn(foodlevelInnerText){
-        this.foodlevel++;
-        foodlevelInnerText.innerText = 'Food Level = ' +  this.foodlevel; 
-        if( this.foodlevel === 10){
+
+        if(this.foodlevel<10){
+            this.foodlevel++;
+            foodlevelInnerText.innerText = 'Food Level = ' +  this.foodlevel; 
+        }
+
+        else if ( this.foodlevel > 10){
             this.foodlevel--;
+            foodlevelInnerText.innerText = 'Food Level = ' +  this.foodlevel; 
         }
     }
     playTamagotchiBtn(happinessLevelInnerText){
-        this.happinesslevel++;
+
+        if(this.happinesslevel<10 ){
+            this.happinesslevel++;
         happinessLevelInnerText.innerText = 'Happiness level = ' +  this.happinesslevel;
-        if( this.happinesslevel === 10){
+        }
+       
+       else if( this.happinesslevel >10){
             this.happinesslevel--;
+            happinessLevelInnerText.innerText = 'Happiness level = ' +  this.happinesslevel;
         }
     }
 
